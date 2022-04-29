@@ -34,13 +34,20 @@ export default function Signup() {
 
   const navigate = useNavigate();
 
-  const onSubmitFunction = ({ name, email, password, course_module }) => {
+  const onSubmitFunction = ({
+    name,
+    email,
+    password,
+    course_module,
+    contact = "123456789",
+    bio = "Lorem ipsum",
+  }) => {
     const user = {
       email,
       password,
       name,
-      bio: "Lorem ipsum dolor emet",
-      contact: "123456789",
+      bio,
+      contact,
       course_module,
     };
     console.log(user);
@@ -57,6 +64,10 @@ export default function Signup() {
     <Container>
       <Content>
         <AnimationContainer>
+          <h1>Kenzie Hub</h1>
+          <Button greySchema onClick={() => navigate("/")}>
+            Voltar
+          </Button>
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <h2>Crie sua conta</h2>
             <p>Rápido e grátis, vamos nessa</p>
