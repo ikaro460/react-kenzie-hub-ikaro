@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const Container = styled.div`
   text-align: center;
@@ -7,6 +8,13 @@ export const Container = styled.div`
   #label {
     text-align: left;
     margin: 5px 3px;
+  }
+
+  div {
+    font-size: 0.8rem;
+    span {
+      color: var(--negative);
+    }
   }
 `;
 
@@ -19,9 +27,15 @@ export const InputContainer = styled.div`
   display: flex;
   transition: 0.3s;
 
-  :hover {
+  :focus {
     border: 2px solid var(--grey-0);
   }
+
+  ${(props) =>
+    props.isErrored &&
+    css`
+      border-color: var(--negative);
+    `}
 
   input {
     background: transparent;

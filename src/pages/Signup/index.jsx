@@ -6,6 +6,9 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { AnimationContainer, Container, Content } from "./styles";
 import Select from "../../components/Select";
+import api from "../../services/api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const schema = yup.object().shape({
@@ -18,7 +21,7 @@ export default function Signup() {
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password")], "Senhas diferentes"),
-    modulo: yup.string().required("Campo Obrigatório"),
+    course_module: yup.string().required("Campo Obrigatório"),
   });
 
   const {
@@ -28,10 +31,26 @@ export default function Signup() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  console.log(errors);
 
-  const onSubmitFunction = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmitFunction = ({ name, email, password, course_module }) => {
+    const user = {
+      email,
+      password,
+      name,
+      bio: "Lorem ipsum dolor emet",
+      contact: "123456789",
+      course_module,
+    };
+    console.log(user);
+    api
+      .post("/users", user)
+      .then((response) => {
+        toast.success("Sucesso ao criar conta!");
+        return navigate("/login");
+      })
+      .catch((err) => toast.error("Erro ao criar conta"));
   };
 
   return (
@@ -46,12 +65,14 @@ export default function Signup() {
               register={register}
               label="Nome"
               placeholder="Digite aqui seu nome"
+              error={errors.name?.message}
             />
             <Input
               name="email"
               register={register}
               label="E-mail"
               placeholder="Digite aqui seu e-mail"
+              error={errors.email?.message}
             />
             <Input
               name="password"
@@ -59,6 +80,7 @@ export default function Signup() {
               type="password"
               label="Senha"
               placeholder="Digite aqui sua senha"
+              error={errors.password?.message}
             />
             <Input
               name="confirmPassword"
@@ -66,8 +88,13 @@ export default function Signup() {
               type="password"
               label="Confirmar Senha"
               placeholder="Digite aqui sua senha"
+              error={errors.confirmPassword?.message}
             />
-            <Select register={register} name="modulo" label="Módulo"></Select>
+            <Select
+              register={register}
+              name="course_module"
+              label="Módulo"
+            ></Select>
             <Button type="submit">Cadastrar</Button>
           </form>
         </AnimationContainer>

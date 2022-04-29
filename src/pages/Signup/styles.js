@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: stretch;
+
+  div {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Content = styled.div`

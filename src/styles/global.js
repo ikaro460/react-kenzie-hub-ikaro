@@ -42,4 +42,8 @@ export default createGlobalStyle`
         font-size: 1rem;
     }
 
+    Button {
+        cursor: pointer;
+    }
+
 `;
