@@ -20,7 +20,7 @@ export default function LandingPage() {
             Cadastre-se
           </Button>
           <Button onClick={() => handleNavigation("/login")} greySchema>
-            Login
+            Entrar
           </Button>
         </div>
       </Content>

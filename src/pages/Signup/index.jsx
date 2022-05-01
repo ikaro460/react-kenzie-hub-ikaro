@@ -63,11 +63,11 @@ export default function Signup() {
   return (
     <Container>
       <Content>
+        <h1>Kenzie Hub</h1>
+        <Button greySchema onClick={() => navigate("/")}>
+          Voltar
+        </Button>
         <AnimationContainer>
-          <h1>Kenzie Hub</h1>
-          <Button greySchema onClick={() => navigate("/")}>
-            Voltar
-          </Button>
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <h2>Crie sua conta</h2>
             <p>Rápido e grátis, vamos nessa</p>

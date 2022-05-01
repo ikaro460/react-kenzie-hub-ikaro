@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,9 +7,9 @@ import Input from "../../components/Input";
 import { AnimationContainer, Container, Content } from "./styles";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Login({ authenticated, setAuthenticated }) {
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
     password: yup
@@ -28,23 +28,34 @@ export default function Signup() {
 
   const navigate = useNavigate();
 
-  const onSubmitFunction = ({ email, password }) => {
-    const user = {
-      email,
-      password,
-    };
+  const onSubmitFunction = (user) => {
     api
-      .post("/sessions", user)
-      .then((response) => {
-        toast.success("Sucesso ao criar conta!");
-        return navigate("/Home");
+      .post("/sessions", { ...user })
+      .then((res) => {
+        const { token } = res.data;
+
+        localStorage.clear();
+        localStorage.setItem("authToken", token);
+        setAuthenticated(true);
+        toast.success("O login foi um sucesso");
       })
-      .catch((err) => toast.error("Erro ao criar conta"));
+      .catch((err) => toast.error("Email ou senha inválidos"));
   };
+
+  useEffect(() => {
+    if (authenticated) {
+      return navigate("/home");
+    }
+  }, [authenticated, navigate]);
+
+  if (authenticated) {
+    return <Navigate to="/home" />;
+  }
 
   return (
     <Container>
       <Content>
+        <h1>Kenzie Hub</h1>
         <AnimationContainer>
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <h2>Login</h2>
