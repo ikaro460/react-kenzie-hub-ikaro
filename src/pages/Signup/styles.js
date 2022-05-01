@@ -6,6 +6,27 @@ export const Container = styled.div`
   display: flex;
   align-items: stretch;
 
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 89%;
+    margin: 10px 0;
+    padding: 2px;
+
+    button {
+      width: 35%;
+      height: 100%;
+      background-color: var(--grey-3);
+      border: 1px solid var(--grey-3);
+      margin: 0;
+
+      :hover {
+        border: 1px solid var(--grey-1);
+      }
+    }
+  }
+
   div {
     font-size: 0.8rem;
   }

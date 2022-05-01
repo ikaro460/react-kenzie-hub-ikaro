@@ -39,7 +39,6 @@ export default createGlobalStyle`
 
     h1, h2 {
         color: var(--primary);
-        font-size: 1rem;
     }
 
     Button {

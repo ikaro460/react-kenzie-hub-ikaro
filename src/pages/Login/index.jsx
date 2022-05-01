@@ -33,9 +33,12 @@ export default function Login({ authenticated, setAuthenticated }) {
       .post("/sessions", { ...user })
       .then((res) => {
         const { token } = res.data;
-
+        const { id } = res.data.user;
+        // console.log(res);
+        // console.log(id);
         localStorage.clear();
         localStorage.setItem("authToken", token);
+        localStorage.setItem("userId", id);
         setAuthenticated(true);
         toast.success("O login foi um sucesso");
       })
@@ -44,12 +47,12 @@ export default function Login({ authenticated, setAuthenticated }) {
 
   useEffect(() => {
     if (authenticated) {
-      return navigate("/home");
+      return navigate("/dashboard");
     }
   }, [authenticated, navigate]);
 
   if (authenticated) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/dashboard" />;
   }
 
   return (

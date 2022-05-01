@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
@@ -35,7 +35,10 @@ function RoutesComponent() {
         path="/signup"
         element={<Signup authenticated={authenticated} />}
       />
-      <Route path="/home" element={<Home authenticated={authenticated} />} />
+      <Route
+        path="/dashboard"
+        element={<Dashboard authenticated={authenticated} />}
+      />
     </Routes>
   );
 }

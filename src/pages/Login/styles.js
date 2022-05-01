@@ -41,6 +41,7 @@ export const AnimationContainer = styled.div`
   animation: ${appearFromRight};
   background-color: var(--grey-3);
   border-radius: 3px;
+  margin: 25px 0;
 
   form {
     margin: 8px;
