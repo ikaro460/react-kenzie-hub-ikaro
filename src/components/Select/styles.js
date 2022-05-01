@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const Container = styled.div`
   text-align: center;
   width: 260px;
-  margin-left: 10px;
   #label {
+    font-size: 0.8rem;
     text-align: left;
     margin: 5px 3px;
   }
@@ -19,15 +20,18 @@ export const SelectContainer = styled.div`
   display: flex;
   transition: 0.3s;
 
-  :hover {
-    border: 2px solid var(--grey-0);
-  }
+  ${(props) =>
+    props.whiteBorder &&
+    css`
+      border: 1px solid var(--grey-0);
+    `}
 
   select {
     background: transparent;
     flex: 1;
     border: 0;
     color: var(--grey-1);
+    font-size: 0.8rem;
 
     &::placeholder {
       /* color: var(--grey-1); */

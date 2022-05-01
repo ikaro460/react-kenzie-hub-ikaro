@@ -4,7 +4,6 @@ import { css } from "styled-components";
 export const Container = styled.div`
   text-align: center;
   width: 260px;
-  margin-left: 10px;
   #label {
     text-align: left;
     margin: 5px 3px;
@@ -35,6 +34,12 @@ export const InputContainer = styled.div`
     props.isErrored &&
     css`
       border-color: var(--negative);
+    `}
+
+  ${(props) =>
+    props.whiteBorder &&
+    css`
+      border: 1px solid var(--grey-0);
     `}
 
   input {

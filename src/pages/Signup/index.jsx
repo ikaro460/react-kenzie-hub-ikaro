@@ -50,7 +50,6 @@ export default function Signup() {
       contact,
       course_module,
     };
-    console.log(user);
     api
       .post("/users", user)
       .then((response) => {
@@ -107,6 +106,9 @@ export default function Signup() {
               register={register}
               name="course_module"
               label="Módulo"
+              option1="M1"
+              option2="M2"
+              option3="M3"
             ></Select>
             <Button type="submit">Cadastrar</Button>
           </form>

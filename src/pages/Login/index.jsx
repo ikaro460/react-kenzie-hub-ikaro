@@ -34,8 +34,6 @@ export default function Login({ authenticated, setAuthenticated }) {
       .then((res) => {
         const { token } = res.data;
         const { id } = res.data.user;
-        // console.log(res);
-        // console.log(id);
         localStorage.clear();
         localStorage.setItem("authToken", token);
         localStorage.setItem("userId", id);

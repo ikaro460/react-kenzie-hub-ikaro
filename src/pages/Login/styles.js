@@ -4,7 +4,6 @@ import { keyframes } from "styled-components";
 export const Container = styled.div`
   height: 100vh;
   display: flex;
-  align-items: stretch;
 
   div {
     font-size: 0.8rem;
@@ -47,6 +46,10 @@ export const AnimationContainer = styled.div`
     margin: 8px;
     width: 280px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h2 {
       margin: 1rem;

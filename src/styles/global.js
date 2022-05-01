@@ -36,6 +36,18 @@ export default createGlobalStyle`
         color: var(--grey-0);
         height: 100vh;
     }
+    @media (min-width: 500px) {
+    body{
+        padding: 0 5%;
+    }
+
+    @media (min-width: 800px) {
+        body{
+
+            padding: 0 20%;
+    }
+    }
+  }
 
     h1, h2 {
         color: var(--primary);

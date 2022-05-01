@@ -17,7 +17,13 @@ export const StyledCard = styled.div`
     justify-content: space-between;
     margin: 5px;
     border-radius: 3px;
-    padding: 5px;
+    padding: 10px;
+  }
+
+  @media (min-width: 500px) {
+    div {
+      padding: 15px;
+    }
   }
   h2 {
     font-size: 1rem;

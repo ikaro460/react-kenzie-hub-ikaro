@@ -4,13 +4,12 @@ import { keyframes } from "styled-components";
 export const Container = styled.div`
   height: 100vh;
   display: flex;
-  align-items: stretch;
 
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 89%;
+    width: 296px;
     margin: 10px 0;
     padding: 2px;
 
@@ -20,6 +19,7 @@ export const Container = styled.div`
       background-color: var(--grey-3);
       border: 1px solid var(--grey-3);
       margin: 0;
+      padding: 5px 0;
 
       :hover {
         border: 1px solid var(--grey-1);
@@ -67,6 +67,10 @@ export const AnimationContainer = styled.div`
     margin: 8px;
     width: 280px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h2 {
       margin: 1rem;
@@ -79,7 +83,7 @@ export const AnimationContainer = styled.div`
     }
 
     Button {
-      margin-bottom: 5px;
+      margin: 20px 0;
     }
   }
 `;
