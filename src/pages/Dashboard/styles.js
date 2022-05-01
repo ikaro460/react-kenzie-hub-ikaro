@@ -30,7 +30,7 @@ export const Container = styled.div`
 
     button {
       margin: 0;
-      width: 20%;
+      width: 65px;
       background-color: var(--grey-3);
       border: var(--grey-3);
     }
