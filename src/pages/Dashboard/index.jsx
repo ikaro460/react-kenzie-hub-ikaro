@@ -124,7 +124,7 @@ export default function Dashboard({ authenticated }) {
         </nav>
         <header>
           <h2>Olá, {userData.name}</h2>
-          <p>Primero módulo</p>
+          <p>{userData.bio}</p>
         </header>
         <div className="add-bar">
           <h2>Tecnologias</h2>
